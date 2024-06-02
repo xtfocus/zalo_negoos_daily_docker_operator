@@ -2,7 +2,7 @@ from kedro.pipeline import Pipeline, node, pipeline
 
 from extras.torch_model import torch_binary_cls_predict
 
-from .nodes import oos_feature_extraction, oos_write
+from .nodes import df_write, oos_feature_extraction
 
 
 def create_pipeline(**kwargs) -> Pipeline:
@@ -21,8 +21,12 @@ def create_pipeline(**kwargs) -> Pipeline:
                 name="oos.predict",
             ),
             node(
-                func=oos_write,
-                inputs=["oos.prediction", "chatlog.organic.refined"],
+                func=df_write,
+                inputs=[
+                    "oos.prediction",
+                    "params:OOS_TABLE",
+                    "chatlog.organic.refined",
+                ],
                 name="oos.write",
                 outputs="oos.prediction.session",
             ),

@@ -1,8 +1,9 @@
 from kedro.pipeline import Pipeline, node, pipeline
 
 from extras.torch_model import torch_binary_cls_predict
+from zalo_chatlog.pipelines.oos_detection.nodes import df_write
 
-from .nodes import negative_feature_extraction, negative_write
+from .nodes import negative_feature_extraction
 
 
 def create_pipeline(**kwargs) -> Pipeline:
@@ -21,8 +22,12 @@ def create_pipeline(**kwargs) -> Pipeline:
                 name="negative.predict",
             ),
             node(
-                func=negative_write,
-                inputs=["negative.prediction", "chatlog.organic.refined"],
+                func=df_write,
+                inputs=[
+                    "negative.prediction",
+                    "params:NEGATIVE_TABLE",
+                    "chatlog.organic.refined",
+                ],
                 name="negative.write",
                 outputs="negative.prediction.session",
             ),
