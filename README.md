@@ -14,6 +14,15 @@ a16313c69c9d   apache/airflow:2.9.1   "/usr/bin/dumb-init …"   2 hours ago    
 99845eed1647   redis:7.2-bookworm     "docker-entrypoint.s…"   2 hours ago     Up 2 hours (healthy)      6379/tcp                                    airflow_docker-redis-1
 t
 ```
+- add credentials to `zalo_chatlog_oos_negative_pipeline/conf/local/credentials.yml` in the following format
+```
+seventy_eight: # DO NOT CHANGE THIS
+  server: <the server address>
+  database: FLC_SHOP_SALES_DATAWAREHOUSE
+  username: <insert the user_name>
+  password: <insert passwd here>
+```
+
 - Clone this repo. Build this image with 
 ```bash
 docker build -t kedro-docker:v1 .
