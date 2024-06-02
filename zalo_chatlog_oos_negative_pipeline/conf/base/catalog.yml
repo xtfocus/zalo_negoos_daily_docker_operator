@@ -1,0 +1,101 @@
+chatlog:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog.parquet
+
+chatlog.sorted:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_sorted.parquet
+
+chatlog.positive:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_status_positive.parquet
+
+chatlog.request.human.status:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_request_human_status.parquet
+
+chatlog.bot.text.classified:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_bot_text_classified.parquet
+
+chatlog.bot.img.classified:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_bot_img_classified.parquet
+
+chatlog.json.drop:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_json_drop.parquet
+
+chatlog.agent.classified:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_agent_classified.parquet
+
+chatlog.customer.payload:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_customer_payload.parquet
+
+chatlog.customer.event:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_customer_event.parquet
+
+chatlog.agent.event:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_agent_event.parquet
+
+chatlog.time.feature:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_time_feature.parquet
+
+chatlog.pool.events:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_pool_event.parquet
+
+chatlog.connected.session:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_connected_session.parquet
+
+chatlog.organic.session:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_connected_session.parquet
+
+chatlog.organic.refined:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/chatlog_organic_refined.parquet
+
+oos.model:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: extras.torch_model.BinaryClassifierFromPretrainedWrapper
+    filepath: data/06_models/oos_model
+
+oos.features:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/chatlog_oos.parquet
+
+oos.prediction:
+  type: pandas.ParquetDataset
+  filepath: data/08_model_output/chatlog_oos.parquet
+
+oos.prediction.session:
+  type: pandas.ParquetDataset
+  filepath: data/08_model_output/chatlog_oos_session.parquet
+
+negative.model:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: extras.torch_model.BinaryClassifierFromPretrainedWrapper
+    filepath: data/06_models/negative_model
+
+negative.features:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/chatlog_negative.parquet
+
+negative.prediction:
+  type: pandas.ParquetDataset
+  filepath: data/08_model_output/chatlog_negative.parquet
+
+negative.prediction.session:
+  type: pandas.ParquetDataset
+  filepath: data/08_model_output/chatlog_negative_session.parquet
+
+

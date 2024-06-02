@@ -1,0 +1,48 @@
+# Event columns to be pooled into the final `event` column
+# The code make sure each message corresponds to no more than one event
+event_columns:
+  - request_human_success
+  - bot_text_summary 
+  - bot_image_summary
+  - cus_payload
+  - cus_event
+  - agent_event
+
+# Minimum number of organic texts to be categorized as organic session
+# An organic text is either a `cus_text_other` or `agent_text_other` event
+organic_requirements:
+  agent: 2
+  customer: 2
+
+fillers:
+  exact:
+    - dạ
+    - vâng ạ
+    - vâng
+    - dạ vâng ạ
+    - hi
+    - alo
+    - a lô
+  contains:
+  - xin phép kiểm tra
+  - để em kiểm tra
+  - trong lúc em kiểm tra
+  - kiểm tra ngay
+  - kiểm tra liền
+  - kiểm tra bây giờ
+  - đã liên hệ nhà thuốc
+  - chào
+  - đợi em
+synonyms:
+  - số điện thoại:
+    - sdt
+    - sđt
+  - bây giờ:
+    - bây h
+    - bâyh
+    - bayh
+  - kiểm tra:
+    - ktra
+    - check
+  - thông tin:
+    - thtin

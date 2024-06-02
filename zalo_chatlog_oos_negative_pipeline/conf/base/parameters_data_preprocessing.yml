@@ -1,0 +1,61 @@
+# Source
+chatlog.source:
+  cred_type: seventy_eight
+  query_filepath: queries/get_daily_chatlog.txt
+
+day_request: 2024-02-14
+
+# str.contains pattern to recognize different types of messages
+bot_text_pattern:
+  greeting:
+    - "Dạ em chào Anh/Chị, em có thể hỗ trợ gì cho mình ạ"
+  ask_phone_general:
+    - "Anh, chị vui lòng nhắn tin SỐ ĐIỆN THOẠI MUA HÀNG để KÍCH HOẠT"
+  closing_time:
+    - "Nhà thuốc Long châu đã nhận được yêu cầu hỗ trợ từ Quý khách, nhưng rất tiếc"
+  hist_vax_empty:
+    - "Tiếc quá! Nhà mình chưa tiêm chủng tại Long Châu nên chưa có thông tin"
+  next_vax_empty:
+    - "Nhà mình hiện Chưa Có Lịch Hẹn Tiêm Chủng tiếp theo"
+  menu_vax:
+    - "Anh/Chị vui lòng chọn thông tin cần tra cứu bên dưới:"
+    - "Lịch sử tiêm chủng"
+    - "Lịch tiêm tiếp theo"
+
+bot_img_pattern:
+  ask_phone_vax:
+    - "Vaccine/NhapSDT.png"
+  song_khoe:
+    - "CHĂM CHỈ TẬP LUYỆN"
+  recommendation:
+    - "xem thêm sản phẩm"
+    - "Xem ngay sản phẩm" 
+  his_vax:
+    - "Vaccine/LichSuTiemChung"
+  vax_6in1:
+    - "VC6TRONG1.jpg"
+  vax_viemphoi:
+    - "VCviemphoi.jpg"
+  vax_hpv:
+    - "hpvvaccine.jpg"
+  vax_reminder:
+    - "SapDenLichHenTiemChung" 
+  diem_hien_tai:
+    - "Banner/DacQuyen"
+    - "để đổi quà nhé ạ"
+  ask_phone_bat_dau_tich_diem:
+    - "Banner/HDNhapSDT"
+  moi_doi_diem:
+    - "khuyen-mai/dac-quyen"
+    - "mời nhà mình"
+    - "0D.png"
+    - "QUÀ"
+  moi_quan_tam:
+    - "PleaseFollow.jpg"
+  dua_ma_qr:
+    - "Mình vui lòng đưa mã QR"
+
+# Phone regex: Combinations of + \s - and 0~9
+recognize_phone:
+  pattern: ^[\d\s\+\-]{7,}$
+

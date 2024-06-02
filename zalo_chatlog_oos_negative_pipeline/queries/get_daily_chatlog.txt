@@ -1,0 +1,2 @@
+SELECT * FROM [[CHATBOT_LC]].CHAT_BOT_ZALO]
+WHERE CAST (created_time AS DATE) = '{day_request}' 

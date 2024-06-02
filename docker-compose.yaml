@@ -1,0 +1,8 @@
+services:
+  kedro_pipeline:
+    build: .
+    command: "Build kedro pipeline"
+    volumes:
+      - ./zalo_chatlog_oos_negative_pipeline:/kedro_code
+        #env_file:
+        #  - ./zalo_chatlog_oos_negative_pipeline/.env
